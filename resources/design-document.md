@@ -10,7 +10,7 @@
 ## 2. Top Questions to Resolve in Review
    - How will I uniquely identify the trips ? ( What will the key structure be for the table) - assign a unique ID to every trip [UUID] .
 
-# 3. Use Cases
+## 3. Use Cases
 
 U1. As a [None-Emergency medical transportation service] member, I want to add a new trip (request a ride).
 
@@ -30,53 +30,72 @@ U9. As a [None-Emergency medical transportation service] driver, I want to unsel
 
 U10. As a [None-Emergency medical transportation service] drive, I want to know how many miles the trip is.
 
-U11.As a [None-Emergency medical transportation service] member, I want to request a convenient type of vehicle to pick me up (lower ride, van).
+U11. As a [None-Emergency medical transportation service] member, I want to request a convenient type of vehicle to pick me up (lower ride, van).
 
-U12.As a [None-Emergency medical transportation service] owner,I want to manage the members.
+U12. As an [None-Emergency medical transportation service] owner,I want to manage the members.
 
-U13.As a [None-Emergency medical transportation service] owner,I want to manage the drivers.
+U13. As an [None-Emergency medical transportation service] owner,I want to manage the drivers.
 
-# 4. Project Scope
-4.1. In Scope
-   The use cases U1-U9.
+## 4. Project Scope
 
-4.2. Out of Scope
-   The use cases U10-U13.
+# 4.1. In Scope
 
-5. Proposed Architecture Overview
+   * The use cases U1-U9.
+
+# 4.2. Out of Scope
+
+   * The use cases U10-U13.
+
+## 5. Proposed Architecture Overview
+
    A web interfaces for members to add,manage and view their trips, and for the drivers to view and select the trips they will accommodate.
    I will store the trips in a table of trips in DynamoDB. I will also store member in a table of members and drivers in a table of drivers.
 
-6. API
-   6.1. Public Models
+## 6. API
+   # 6.1. Public Models
+
+```
+ //trips (model)
    
-   //trips (model)
-   String tripID; partition
-   String memberID; sort
-   String pickupDateTime;
-   String pickupAddress;
-   String dropOffAddress;
-   String mobility; (ambulatory,wheelchair)
-   String driverId;
-   Boolean completed;
+String tripID; 
+String memberID;
+String pickupDateTime;
+String pickupStreetAddress;
+String pickupCity;
+String pickupState;
+String pickupZipCode;
+String dropOffStreetAddress;
+String dropOffCity;
+String dropOffState;
+String dropOffZipCode;
+String mobility;
+String driverId;
+Boolean completed;
+```
 
+```
+ // drivers (model)
+String memberEmail; 
+String name;
+String DateOfBirth;
+String phoneNumber;
+String streetAddress;
+String city;
+String state;
+String zipCode;
+```
 
-   //driver (model)
-   String memberEmail; partition
-   String name;
-   String DateOfBirth;
-   String phoneNumber;
-   String streetAddress;
-   String city;
-   String state;
-   String zipCode;
-
-
-   //member (model)
-   String driverEmail; partition
-   String name;
-   String driverLicense
-   String phoneNumber;
+```
+ //members (model)
+String driverEmail; partition
+String name;
+String driverLicense
+String phoneNumber;
+String streetAddress;
+String city;
+String state;
+String zipCode;
+```
 
 ### 6.2. `view the all trips `
 
@@ -96,39 +115,60 @@ U13.As a [None-Emergency medical transportation service] owner,I want to manage 
 * Accepts `DELETE` requests to `/trips/tripId`.
 
 
-7. Tables
+## 7. Tables
 
-trips (table)
-String tripID; partition
-String memberID; sort
-String pickupDateTime;
-String pickupAddress;
-String dropOffAddress;
-String mobility; (ambulatory,wheelchair)
-String driverId;
-Boolean completed;
-////////////////////////////
+### 7.1. `trips`
 
-member (table)
-String memberEmail; partition
-String name;
-String DateOfBirth;
-String phoneNumber;
-String streetAddress;
-String city;
-String state;
-String zipCode;
+```
+tripId // partition key, string
+memberId // sort key string
+pickupDateTime // string
+pickupStreetAddress // string
+pickupCity // string
+pickupState // string
+pickupZipCode // string
+dropOffStreetAddress // string
+dropOffCity // string
+dropOffState // string
+dropOffZipCode // string
+mobility // string
+driverId // string
+completed // string
 
-/////////////////////
+```
 
-driver (table)
-String driverEmail; partition
-String name;
-String driverLicense
-String phoneNumber;
+### 7.2. `drivers`
 
+```
 
-8. Pages
+driverEmail // partition key, string
+name // string
+dateOfBirth // string
+phoneNumber // string
+streetAddress // string
+city // string
+state // string
+zipCode // string
+
+```
+### 7.3. `members`
+
+```
+
+memberEmail // partition key, string
+name // string
+dateOfBirth // string
+phoneNumber // string
+streetAddress // string
+city // string
+state // string
+zipCode // string
+```
+
+### 8. Pages
+
    ![](Images/1.jpg)
    ![](Images/2.jpg)
-   ![](Images/2.jpg)
+   ![](Images/3.jpg)
+   ![](Images/4.jpg)
+   ![](Images/5.jpg)
