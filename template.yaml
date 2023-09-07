@@ -273,6 +273,228 @@ Resources:
             Method: post
           Auth:
             Authorizer: 'NONE'
+
+  AddTripLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: app
+      Handler: capstone.project.lambda.AddTripLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /trips
+            Method: post
+          Auth:
+            Authorizer: 'NONE'
+
+  GetTripLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: app
+      Handler: capstone.project.lambda.GetTripLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /trips
+            Method: get
+            Auth:
+              Authorizer: 'NONE'
+
+  SearchTripsLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: app
+      Handler: capstone.project.lambda.SearchTripsLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /trips/search
+            Method: get
+            Auth:
+              Authorizer: 'NONE'
+
+  SearchTripsDriverLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: app
+      Handler: capstone.project.lambda.SearchTripsDriverLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /trips/search/driver
+            Method: get
+            Auth:
+              Authorizer: 'NONE'
+
+  GetDriverLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: app
+      Handler: capstone.project.lambda.GetDriverLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /drivers
+            Method: get
+            Auth:
+              Authorizer: 'NONE'
+
+  GetMemberLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: app
+      Handler: capstone.project.lambda.GetMemberLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /members
+            Method: get
+            Auth:
+              Authorizer: 'NONE'
+
+  RemoveTripLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: app
+      Handler: capstone.project.lambda.RemoveTripLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /trips
+            Method: delete
+            Auth:
+              Authorizer: 'NONE'
+
+  UpdateTripLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: app
+      Handler: capstone.project.lambda.UpdateTripLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /trips
+            Method: put
+            Auth:
+              Authorizer: 'NONE'
+
+  UpdateTripMemberLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: app
+      Handler: capstone.project.lambda.UpdateTripMemberLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /trips/member
+            Method: put
+            Auth:
+              Authorizer: 'NONE'
+
+#  SearchTripsLambda:
+#    Type: AWS::Serverless::Function
+#    Properties:
+#      Role: !GetAtt AccessRole.Arn
+#      CodeUri: app
+#      Handler: capstone.project.lambda.SearchTripsLambda::handleRequest
+#      Runtime: java11
+#      Architectures:
+#        - x86_64
+#      MemorySize: 512
+#      Environment:
+#        Variables:
+#          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+#      Events:
+#        MusicPlaylistService:
+#          Type: Api
+#          Properties:
+#            Path: /trips/
+#            Method: get
+#          Auth:
+#            Authorizer: 'NONE'
+
+
 #  GetPlaylistLambda:
 #    Type: AWS::Serverless::Function
 #    Properties:
@@ -435,6 +657,12 @@ Resources:
           AttributeType: "S"
         - AttributeName: "memberId"
           AttributeType: "S"
+        - AttributeName: "pickupDateTime"
+          AttributeType: "S"
+        - AttributeName: "pickupZipCode"
+          AttributeType: "S"
+        - AttributeName: "selected"
+          AttributeType: "S"
       KeySchema:
         - AttributeName: "tripId"
           KeyType: "HASH"
@@ -442,6 +670,25 @@ Resources:
           KeyType: "RANGE"
       BillingMode: "PAY_PER_REQUEST"
       TableName: "trips"
+
+      GlobalSecondaryIndexes:
+        - IndexName: "TripsMemberIndex"
+          KeySchema:
+            - AttributeName: "memberId"
+              KeyType: "HASH"
+            - AttributeName: "pickupDateTime"
+              KeyType: "RANGE"
+          Projection:
+            ProjectionType: "ALL"
+
+        - IndexName: "TripsDriverIndex"
+          KeySchema:
+            - AttributeName: "pickupZipCode"
+              KeyType: "HASH"
+            - AttributeName: "selected"
+              KeyType: "RANGE"
+          Projection:
+            ProjectionType: "ALL"
 
 #-----------------------------------------------------
 # The outputs defined below will be printed

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="assets/driver.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Driver Page</title>
+    <link rel="icon" type="image/png" href="css/favicon.png">
+</head>
+<body class="background">
+<header class="header" id="header"></header>
+<div class = "topnav" id="link-bar"></div>
+
+<div class="card">
+    <h4>Please enter the pickup zip code and press search</h4>
+    <form class="card-content" id="create-playlist-form">
+        <p class="hidden error" id="error-message1"> </p>
+        <p class="div-findtrip-zipcode" id="div-findtrip-zipcode">
+            <label for="zipcodetext" class="lables" id ="zipcode"> Please enter the ZipCode </label>
+            <input class="inputText-zipCode" type = "text" id="zipcodetext">
+         </p>
+         <p class="button-group" id ="buttongroups">
+            <a href="#" class = "button"  id="search-trip"> Search</a>
+            <a href="#" class = "button"  id="cancel">  Cancel </a>
+        </p>
+
+    </form>
+</div>
+<div class="card hidden" id='search-results-container'>
+    <h3>Results for <span id="search-criteria-display"></span></h3>
+    <div id="search-results-display">
+    </div>
+</div>
+</body>
+</html>

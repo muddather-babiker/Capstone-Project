@@ -1,6 +1,8 @@
 package capstone.project.dynamodb;
 
+import capstone.project.dynamodb.models.Driver;
 import capstone.project.dynamodb.models.Member;
+import capstone.project.exceptions.DriverNotFoundException;
 import capstone.project.metrics.MetricsPublisher;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 
@@ -17,6 +19,14 @@ public class MemberDao {
     }
     public Member saveMember(Member member) {
         this.dynamoDbMapper.save(member);
+        return member;
+    }
+    public Member getMember(String memberEmail) {
+        Member member = this.dynamoDbMapper.load(Member.class, memberEmail);
+        if (member == null) {
+            member = new Member();
+            //throw new DriverNotFoundException("Could not find Member with Member Email " + memberEmail);
+        }
         return member;
     }
 }

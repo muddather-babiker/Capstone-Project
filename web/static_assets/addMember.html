@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script type="text/javascript" src="assets/addMember.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Add New Member Page</title>
+    <link rel="icon" type="image/png" href="css/favicon.png">
+</head>
+<body class="background">
+<header class="header" id="header"></header>
+<div class = "topnav" id="link-bar"></div>
+
+<div class="card">
+    <h3 id="firstLable">Pleas fill the form below and press Save Or cancle to go back :</h3>
+    <p class="hidden error" id="error-message"> </p>
+    <p class="hidden successful" id="successful-message"> </p>
+    <form class="card-content" id="create-playlist-form">
+        <p class = "form-field">
+            <label class="lables" for="dateOfBirth">Date of birth</label>
+            <input class="inputText" type="date" id="dateOfBirth" name="birthday">
+            <label class="lables">Phone number</label>
+            <input class="inputText" type ="text" id ="phoneNumber">
+            <label class="lables">Street address </label>
+            <input class="inputText" type = "text" id="streetAddress">
+            <label class="lables">City</label>
+            <input class="inputText" type = "text" id="city">
+            <label class="lables">State</label>
+            <select class="inputText" name="states" id="state">
+                <option value = "Alabama">Alabama</option>
+                <option value = "Arizona">Arizona</option>
+                <option value = "Tennessee">Tennessee</option>
+                <option value = "Texas">Texas</option>
+                <option value = "Virginia">Virginia</option>
+                <option value = "Washington">Washington</option>
+            </select>
+            <label class="lables">Zip Code</label>
+            <input class="inputText" type="text" id="zipCode">
+        </p>
+        <p class="button-group">
+            <a href="#" class = "button"  id="create-member"> Save</a>
+            <a href="#" class = "button"  id="cancel">  Cancel </a>
+        </p>
+    </form>
+</div>
+<div class="card hidden" id='search-results-container'>
+    <h3>Results for <span id="search-criteria-display"></span></h3>
+    <div id="search-results-display">
+    </div>
+</div>
+</body>
+</html>

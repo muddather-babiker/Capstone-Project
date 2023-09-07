@@ -1,7 +1,6 @@
 package capstone.project.dependency;
 
-import capstone.project.activity.AddDriverActivity;
-import capstone.project.activity.AddMemberActivity;
+import capstone.project.activity.*;
 import dagger.Component;
 
 import javax.inject.Singleton;
@@ -14,4 +13,13 @@ import javax.inject.Singleton;
 public interface ServiceComponent {
     AddDriverActivity provideAddDriverActivity();
     AddMemberActivity provideAddMemberActivity();
+    AddTripActivity provideAddTripActivity();
+    RemoveTripActivity provideRemoveTripActivity();
+    GetTripActivity provideGetTripActivity();
+    SearchTripsActivity provideSearchTripsActivity();
+    SearchTripsDriverActivity provideSearchTripsDriverActivity();
+    UpdateTripActivity provideUpdateTripActivity();
+    UpdateTripMemberActivity provideUpdateTripMemberActivity();
+    GetDriverActivity provideGetDriverActivity();
+    GetMemberActivity provideGetMemberActivity();
 }

@@ -1,9 +1,16 @@
 package capstone.project.dynamodb.models;
 
+import capstone.project.converters.ZonedDateTimeConverter;
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+
 @DynamoDBTable(tableName = "trips")
-public class Trips {
+
+public class Trip {
+private static final String Trips_Member_INDEX = "TripsMemberIndex";
+private static final String Trips_Driver_INDEX = "TripsDriverIndex";
     private String tripId;
     private String memberId;
     private String pickupDateTime;
@@ -17,7 +24,7 @@ public class Trips {
     private String dropOffZipCode;
     private String mobility;
     private String driverId;
-    private String completed;
+    private String selected;
 
     @DynamoDBHashKey(attributeName = "tripId")
     public String getTripId() {
@@ -29,6 +36,7 @@ public class Trips {
     }
 
     @DynamoDBRangeKey(attributeName = "memberId")
+    @DynamoDBIndexHashKey(globalSecondaryIndexName =Trips_Member_INDEX, attributeName = "memberId")
     public String getMemberId() {
         return memberId;
     }
@@ -36,9 +44,9 @@ public class Trips {
     public void setMemberId(String memberId) {
         this.memberId = memberId;
     }
-
-    @DynamoDBTypeConvertedTimestamp
+   // @DynamoDBTypeConverted(converter = ZonedDateTimeConverter.class)
     @DynamoDBAttribute(attributeName = "pickupDateTime")
+    @DynamoDBIndexRangeKey(globalSecondaryIndexNames = Trips_Member_INDEX, attributeName = "pickupDateTime")
     public String getPickupDateTime() {
         return pickupDateTime;
     }
@@ -75,6 +83,7 @@ public class Trips {
     }
 
     @DynamoDBAttribute(attributeName = "pickupZipCode")
+    @DynamoDBIndexHashKey(globalSecondaryIndexName =Trips_Driver_INDEX, attributeName = "pickupZipCode")
     public String getPickupZipCode() {
         return pickupZipCode;
     }
@@ -137,12 +146,33 @@ public class Trips {
         this.driverId = driverId;
     }
 
-    @DynamoDBAttribute(attributeName = "completed")
-    public String getCompleted() {
-        return completed;
+    @DynamoDBAttribute(attributeName = "selected")
+    @DynamoDBIndexRangeKey(globalSecondaryIndexNames = Trips_Driver_INDEX, attributeName = "selected")
+    public String getSelected() {
+        return selected;
     }
 
-    public void setCompleted(String completed) {
-        this.completed = completed;
+    public void setSelected(String selected) {
+        this.selected = selected;
+    }
+
+    @Override
+    public String toString() {
+        return "Trip{" +
+                "tripId='" + tripId + '\'' +
+                ", memberId='" + memberId + '\'' +
+                ", pickupDateTime='" + pickupDateTime + '\'' +
+                ", pickupStreetAddress='" + pickupStreetAddress + '\'' +
+                ", pickupCity='" + pickupCity + '\'' +
+                ", pickupState='" + pickupState + '\'' +
+                ", pickupZipCode='" + pickupZipCode + '\'' +
+                ", dropOffStreetAddress='" + dropOffStreetAddress + '\'' +
+                ", dropOffCity='" + dropOffCity + '\'' +
+                ", dropOffState='" + dropOffState + '\'' +
+                ", dropOffZipCode='" + dropOffZipCode + '\'' +
+                ", mobility='" + mobility + '\'' +
+                ", driverId='" + driverId + '\'' +
+                ", selected=" + selected +
+                '}';
     }
 }

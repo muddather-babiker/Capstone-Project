@@ -23,9 +23,13 @@ module.exports = {
     usedExports: true
   },
   entry: {
-    createPlaylist: path.resolve(__dirname, 'src', 'pages', 'createPlaylist.js'),
-    viewPlaylist: path.resolve(__dirname, 'src', 'pages', 'viewPlaylist.js'),
-    searchPlaylists: path.resolve(__dirname, 'src', 'pages', 'searchPlaylists.js'),
+    addTrip: path.resolve(__dirname, 'src', 'pages', 'addTrip.js'),
+    updatetrip: path.resolve(__dirname, 'src', 'pages', 'updatetrip.js'),
+    addMember: path.resolve(__dirname, 'src', 'pages', 'addMember.js'),
+    member: path.resolve(__dirname, 'src', 'pages', 'member.js'),
+    addDriver: path.resolve(__dirname, 'src', 'pages', 'addDriver.js'),
+    driver: path.resolve(__dirname, 'src', 'pages', 'driver.js'),
+    home: path.resolve(__dirname, 'src', 'pages', 'home.js'),
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),

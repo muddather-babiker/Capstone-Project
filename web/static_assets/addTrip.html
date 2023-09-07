@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="assets/addTrip.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Add New Trip Page</title>
+    <link rel="icon" type="image/png" href="css/favicon.png">
+</head>
+<body class="background">
+<header class="header" id="header"></header>
+<div class = "topnav" id="link-bar"></div>
+<div class="card">
+    <h3 id = "firstLable" >Please fill up the form below and press Save Or press Cancle to go back.</h3>
+    <p class="hidden successful" id="successful-message"> </p>
+    <form class="card-content" id="create-playlist-form">
+        <p class="hidden error" id="error-message1"> </p>
+        <p class = "form-field">
+            <label class="lables" for="pickupDateTime">pickup (date and time):</label>
+            <input class="inputText" type="datetime-local" id="pickupDateTime" name="pickupDateTime">
+            <label class="lables" for="pickupStreetAddress">Pickup street address</label>
+            <input class="inputText" type ="text" id ="pickupStreetAddress">
+            <label class="lables" for="pickupCity">Pickup city </label>
+            <input class="inputText" type = "text" id="pickupCity">
+            <label class="lables" for="pickupState">Pickup state</label>
+            <select class="inputText" name="pickupState" id="pickupState">
+                <option value = "Alabama">Alabama</option>
+                <option value = "Arizona">Arizona</option>
+                <option value = "Tennessee">Tennessee</option>
+                <option value = "Texas">Texas</option>
+                <option value = "Virginia">Virginia</option>
+                <option value = "Washington">Washington</option>
+            </select>
+            <label class="lables" for="pickupZipCode">Pickup ZipCode</label>
+            <input class="inputText" type="text" id="pickupZipCode">
+            <label class="lables" for="dropOffStreetAddress">Drop Off street address</label>
+            <input class="inputText" type ="text" id ="dropOffStreetAddress">
+            <label class="lables" for="dropOffCity">Drop Off city </label>
+            <input class="inputText" type = "text" id="dropOffCity">
+            <label class="lables" for="dropOffState">Drop Off state</label>
+            <select class="inputText" name="dropOffState" id="dropOffState">
+                <option value = "Alabama">Alabama</option>
+                <option value = "Arizona">Arizona</option>
+                <option value = "Tennessee">Tennessee</option>
+                <option value = "Texas">Texas</option>
+                <option value = "Virginia">Virginia</option>
+                <option value = "Washington">Washington</option>
+            </select>
+            <label class="lables" for="dropOffZipCode">Drop Off ZipCode</label>
+            <input class="inputText" type="text" id="dropOffZipCode">
+            <label class="lables" for="mobility">Mobility</label>
+            <select class="inputText" name="mobility" id="mobility">
+                <option value = "Wheelchair">Ambulatory</option>
+                <option value = "Wheelchair">Wheelchair</option>
+            </select>
+        </p>
+        <p class="button-group">
+            <a href="#" class = "button"  id="create-trip"> Save</a>
+            <a href="#" class = "button"  id="cancel">  Cancel </a>
+        </p>
+    </form>
+</div>
+<div class="card hidden" id='search-results-container'>
+    <h3>Results for <span id="search-criteria-display"></span></h3>
+    <div id="search-results-display">
+    </div>
+</div>
+</body>
+</html>

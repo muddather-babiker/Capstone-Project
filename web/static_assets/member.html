@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="assets/member.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Manage my trips page</title>
+    <link rel="icon" type="image/png" href="css/favicon.png">
+</head>
+<body class="background">
+<header class="header" id="header"></header>
+<div class = "topnav" id="link-bar"></div>
+<div class="card">
+    <h2>Manage my trips:</h2>
+    <form class="card-content" id="create-playlist-form">
+        <p class = "form-field">
+            <nav>
+              <a href="addTrip.html">New Trip</a>
+              <a href="#" id ="findTripmenu">Find a Trip</a>
+              <a href="#" id ="deleteTripmenu">Delete a Trip</a>
+              <a href="#" id = "updateTripmenu">Update a Trip</a>
+              <div class="animation start-home"></div>
+            </nav>
+        </p>
+        <div class ="div-findtrip" id="div-findtrip">
+            <p>Search Trips By:</p>
+                <input type="radio" id="allTrip" name="find_trip" value="ALLTrip">
+                <label for="allTrip">ALL Trips</label><br>
+                <input type="radio" id="BYConfimation" name="find_trip" value="BYConfimation">
+                <label for="BYConfimation">Find BY confirmation number</label><br>
+                <input type="radio" id="BYDate" name="find_trip" value="BYDate">
+                <label for="BYDate">Find By date and time</label>
+        </div>
+            <p class="div-findtrip-confirmation" id="div-findtrip-confirmation">
+               <label for="tripId" class="lables" id ="findlable"> Please enter the confirmation number </label>
+               <input class="inputText-search" type = "text" id="tripId">
+            </p>
+            <p class="div-findtrip-date" id ="div-findtrip-date">
+                <label for="pickupDateTime" class="lables" id ="findlable"> Please select the date and time </label>
+                <input class="inputText" type="datetime-local" id="pickupDateTime" name="pickupDateTime">
+                <p class="hidden error" id="error-message"> </p>
+                <p class="hidden successful" id="successful-message"> </p>
+             </p>
+             <p class="button-group" id ="buttongroups">
+                <a href="#" class = "button"  id="search-trip"> Search</a>
+                <a href="#" class = "button"  id="cancel">  Cancel </a>
+            </p>
+        </form>
+    </div>
+    <div class="card hidden" id='search-results-container'>
+        <h3>Results for <span id="search-criteria-display"></span></h3>
+        <div id="search-results-display">
+        </div>
+</div>
+</body>
+</html>
