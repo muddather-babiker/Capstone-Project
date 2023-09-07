@@ -1,0 +1,110 @@
+{
+  "trips": [
+    {
+      "PutRequest": {
+        "Item": {
+          "tripId": { "S": "123" },
+          "pickupStreetAddress": { "S": "123" },
+          "pickupCity": { "S": "Nashville" },
+          "pickupState": { "S": "TN" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "tripId": { "S": "234" },
+          "pickupStreetAddress": { "S": "234" },
+          "pickupCity": { "S": "Nashville" },
+          "pickupState": { "S": "TN" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "tripId": { "S": "345" },
+          "pickupStreetAddress": { "S": "345" },
+          "pickupCity": { "S": "Nashville" },
+          "pickupState": { "S": "TN" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "tripId": { "S": "456" },
+          "pickupStreetAddress": { "S": "456" },
+          "pickupCity": { "S": "Nashville" },
+          "pickupState": { "S": "TN" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "tripId": { "S": "567" },
+          "pickupStreetAddress": { "S": "567" },
+          "pickupCity": { "S": "Nashville" },
+          "pickupState": { "S": "TN" }
+        }
+      }
+    }
+  ],
+  "drivers": [
+    {
+      "PutRequest": {
+        "Item": {
+          "driverEmail": { "S": "a@a.com" },
+          "name": { "S": "John" },
+          "phoneNumber": { "S": "12345" },
+          "streetAddress": { "S": "12345" },
+          "city": { "S": "Murfreesboro" },
+          "state": { "S": "TN" },
+          "zipCode": { "S": "12345"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "driverEmail": { "S": "b@b.com" },
+          "name": { "S": "bbb" },
+          "phoneNumber": { "S": "234" },
+          "streetAddress": { "S": "234" },
+          "city": { "S": "Murfreesboro" },
+          "state": { "S": "TN" },
+          "zipCode": { "S": "234"}
+        }
+      }
+    }
+  ],
+  "members": [
+    {
+      "PutRequest": {
+        "Item": {
+          "memberEmail": { "S": "c@c.com" },
+          "name": { "S": "ccc" },
+          "phoneNumber": { "S": "3333" },
+          "streetAddress": { "S": "3333" },
+          "city": { "S": "Murfreesboro" },
+          "state": { "S": "TN" },
+          "zipCode": { "S": "3333"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "memberEmail": { "S": "d@d.com" },
+          "name": { "S": "ddd" },
+          "phoneNumber": { "S": "4444" },
+          "streetAddress": { "S": "4444" },
+          "city": { "S": "Murfreesboro" },
+          "state": { "S": "TN" },
+          "zipCode": { "S": "44444"}
+        }
+      }
+    }
+  ]
+}
